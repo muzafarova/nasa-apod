@@ -1,3 +1,3 @@
 <template>
-  <div>APOD</div>
+  <NuxtLayout />
 </template>
