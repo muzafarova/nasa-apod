@@ -11,14 +11,20 @@ const apodStore = useApodStore();
 <template>
   <div class="p-4">
     <h1>Today’s image</h1>
+
     <div v-if="apodStore.status === 'pending'">Loading...</div>
+
     <div v-if="apodStore.error">
       <pre>{{ apodStore.error }}</pre>
     </div>
-    <div v-if="apodStore.data">
-      <NuxtLink :to="`/apod/${apodStore.data.date}`">
-        <pre>{{ apodStore.data }}</pre>
-      </NuxtLink>
-    </div>
+
+    <NuxtLink v-if="apodStore.apod" :to="`/apod/${apodStore.apod.date}`">
+      <ApodMediaCard
+        :url="apodStore.apod.url"
+        :media-type="apodStore.apod.media_type"
+        :title="apodStore.apod.title"
+        :date="apodStore.apod.date"
+      />
+    </NuxtLink>
   </div>
 </template>
