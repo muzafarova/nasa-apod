@@ -2,7 +2,7 @@
 import { useApodStore } from '~/store/apod';
 
 useSeoMeta({
-  title: 'Astronomy Picture of the Day • ',
+  title: 'Astronomy Picture of the Day',
 });
 
 const apodStore = useApodStore();
@@ -16,7 +16,9 @@ const apodStore = useApodStore();
       <pre>{{ apodStore.error }}</pre>
     </div>
     <div v-if="apodStore.data">
-      <pre>{{ apodStore.data }}</pre>
+      <NuxtLink :to="`/apod/${apodStore.data.date}`">
+        <pre>{{ apodStore.data }}</pre>
+      </NuxtLink>
     </div>
   </div>
 </template>

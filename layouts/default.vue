@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  titleTemplate: '%s NASA Images',
+  titleTemplate: (title) => (title ? '%s • NASA' : 'NASA Images'),
   meta: [
     {
       name: 'description',
