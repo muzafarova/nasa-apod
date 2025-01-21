@@ -9,4 +9,11 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
     },
   },
+  routeRules: {
+    '/': { prerender: true },
+    '/api/*': { cache: { maxAge: 60 * 60 } },
+    '/apod': {
+      redirect: { to: '/', statusCode: 302 },
+    },
+  },
 });
