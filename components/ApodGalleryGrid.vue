@@ -17,10 +17,13 @@ defineProps<{
       :key="item.url"
       class="w-32 h-16 overflow-hidden"
     >
-      <NuxtLink :to="`/apod/${item.date}`" :title="item.title">
+      <NuxtLink
+        :to="`/apod/${item.date}`"
+        :title="`${formatDate(item.date)}: ${item.title}`"
+      >
         <img
           :src="item.media_type === 'image' ? item.url : item.thumbnail_url"
-          :alt="`${item.date}: ${item.title}`"
+          :alt="item.title"
           class="block max-w-full pointer-events-none"
         />
       </NuxtLink>

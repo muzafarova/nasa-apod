@@ -22,7 +22,7 @@ const apodGallery = useApodGalleryStore();
       type="date"
       id="since"
       :max="formatISODate(new Date())"
-      :min="dateMonthsFromNow(3)"
+      min="1995-12-01"
       :value="apodGallery.startDate"
       @change="e => apodGallery.changeDate((e.target as HTMLInputElement).value)"
       class="bg-slate-400 hover:bg-white text-black px-1 rounded"
