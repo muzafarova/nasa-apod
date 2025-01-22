@@ -24,7 +24,7 @@ defineProps<{
           {{ description }}
         </p>
       </figcaption>
-      <div class="xl:w-4/5">
+      <div :class="description ? 'xl:w-4/5' : ''">
         <img v-if="mediaType === 'image'" :src="url" :alt="title" />
         <iframe
           v-else-if="mediaType === 'video'"

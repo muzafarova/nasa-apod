@@ -36,7 +36,7 @@ const apodMediaStore = useApodMediaStore();
       </aside>
     </main>
 
-    <aside class="p-8 bg-slate-900">
+    <aside class="p-8 bg-black/25">
       <MarsGallery />
     </aside>
   </div>
