@@ -23,7 +23,7 @@ defineOptions({
       <span class="sr-only">{{
         isActive ? 'Remove from favourites' : 'Add to favourites'
       }}</span>
-      <span class="size-5">
+      <span class="size-6">
         <!-- // !Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com
       License - https://fontawesome.com/license/free Copyright 2025 Fonticons,
       Inc. -->
