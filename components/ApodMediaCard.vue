@@ -17,8 +17,11 @@ defineProps<{
     </h2>
 
     <figure class="flex flex-wrap">
-      <figcaption v-if="description" class="xl:w-1/5 bg-slate-700 p-4 shrink-0">
-        <p class="text-base xl:text-sm max-w-prose">
+      <figcaption
+        v-if="description"
+        class="xl:w-1/5 w-full md:max-w-prose bg-slate-700 p-4 shrink-0"
+      >
+        <p class="text-base xl:text-sm">
           {{ description }}
         </p>
       </figcaption>
