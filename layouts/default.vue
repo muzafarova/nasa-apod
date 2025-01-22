@@ -7,6 +7,10 @@ useHead({
       content:
         'Demo project built with Astronomy Picture of the Day (APOD) API',
     },
+    {
+      'http-equiv': 'description',
+      content: 'upgrade-insecure-requests',
+    },
   ],
   bodyAttrs: {
     class: 'bg-slate-800 text-white ',
