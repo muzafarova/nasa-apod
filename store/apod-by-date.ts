@@ -27,7 +27,7 @@ export const useApodMediaByDateStore = defineStore(
     );
 
     const pageTitle = computed(() =>
-      media.value ? media.value.title : formatDate(date.value)
+      media.value ? media.value.title : formatDateUI(date.value)
     );
 
     watch(
