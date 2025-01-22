@@ -30,6 +30,10 @@ export const useApodGalleryStore = defineStore('apodGallery', () => {
     data.value?.filter((item) => item.media_type !== 'other')
   );
 
+  const other = computed(() =>
+    (data.value || []).filter((item) => item.media_type === 'other')
+  );
+
   function changeDate(date: string) {
     startDate.value = date;
   }
@@ -37,5 +41,5 @@ export const useApodGalleryStore = defineStore('apodGallery', () => {
   watch(startDate, () => execute());
   execute();
 
-  return { gallery, error, status, startDate, changeDate };
+  return { gallery, other, error, status, startDate, changeDate };
 });

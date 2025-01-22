@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useApodGalleryStore } from '~/store/apod-gallery.js';
 import ApodGalleryGrid from '~/components/ApodGalleryGrid.vue';
+import PageHeading from './PageHeading.vue';
 
 const apodGallery = useApodGalleryStore();
 </script>
@@ -30,4 +31,15 @@ const apodGallery = useApodGalleryStore();
   </label>
 
   <ApodGalleryGrid v-if="apodGallery.gallery" :items="apodGallery.gallery" />
+
+  <div v-if="apodGallery.other.length > 0">
+    <PageHeading tag="h3">Other</PageHeading>
+    <dl v-for="item of apodGallery.other">
+      <dt>
+        <time class="text-sm text-slate-400"> {{ item.date }}: </time>
+        {{ item.title }}
+      </dt>
+      <dd class="text-sm">{{ item.explanation }}</dd>
+    </dl>
+  </div>
 </template>
