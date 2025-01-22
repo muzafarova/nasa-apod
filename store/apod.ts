@@ -1,11 +1,11 @@
-import { type Apod } from '~/server/api/apod';
+import { type ApodMedia } from '~/server/api/apod';
 
-export const useApodStore = defineStore('apodStore', () => {
+export const useApodMediaStore = defineStore('apodMediaStore', () => {
   const {
-    data: apod,
+    data: media,
     error,
     status,
-  } = useAsyncData<Apod>(() => $fetch<Apod>('/api/apod'), { lazy: true });
+  } = useAsyncData(() => $fetch<ApodMedia>('/api/apod'), { lazy: true });
 
-  return { apod, error, status };
+  return { media, error, status };
 });

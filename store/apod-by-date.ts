@@ -1,37 +1,40 @@
-import { type Apod } from '~/server/api/apod';
+import { type ApodMedia } from '~/server/api/apod';
 
-export const useApodByDateStore = defineStore('apodByDateStore', () => {
-  const route = useRoute();
-  const date = computed(() => {
-    return Array.isArray(route.params.date)
-      ? route.params.date[0]
-      : route.params.date;
-  });
+export const useApodMediaByDateStore = defineStore(
+  'apodMediaByDateStore',
+  () => {
+    const route = useRoute();
+    const date = computed(() => {
+      return Array.isArray(route.params.date)
+        ? route.params.date[0]
+        : route.params.date;
+    });
 
-  const {
-    data: apod,
-    error,
-    status,
-    execute,
-  } = useAsyncData<Apod | null>(
-    async () => {
-      if (!date.value) {
-        return null;
-      }
+    const {
+      data: media,
+      error,
+      status,
+      execute,
+    } = useAsyncData(
+      async () => {
+        if (!date.value) {
+          return null;
+        }
 
-      return await $fetch<Apod>(`/api/apod?date=${date.value}`);
-    },
-    { lazy: true }
-  );
+        return await $fetch<ApodMedia>(`/api/apod?date=${date.value}`);
+      },
+      { lazy: true }
+    );
 
-  const pageTitle = computed(() =>
-    apod.value ? apod.value.title : formatDate(date.value)
-  );
+    const pageTitle = computed(() =>
+      media.value ? media.value.title : formatDate(date.value)
+    );
 
-  watch(
-    () => route.params.date,
-    () => execute()
-  );
+    watch(
+      () => route.params.date,
+      () => execute()
+    );
 
-  return { pageTitle, apod, error, status };
-});
+    return { pageTitle, media, error, status };
+  }
+);

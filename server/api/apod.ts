@@ -20,7 +20,7 @@ const ApodSchemaVideo = z.object({
 
 const ApodSchema = z.union([ApodSchemaImage, ApodSchemaVideo]);
 
-export type Apod = z.infer<typeof ApodSchema>;
+export type ApodMedia = z.infer<typeof ApodSchema>;
 
 export default defineEventHandler(async (event) => {
   const search = new URLSearchParams(getQuery(event));

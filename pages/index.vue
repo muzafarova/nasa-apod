@@ -1,29 +1,32 @@
 <script setup lang="ts">
-import { useApodStore } from '~/store/apod';
+import { useApodMediaStore } from '~/store/apod';
 
 useSeoMeta({
   title: 'Astronomy Picture of the Day',
 });
 
-const apodStore = useApodStore();
+const apodMediaStore = useApodMediaStore();
 </script>
 
 <template>
   <div class="p-4">
     <h1>Today’s image</h1>
 
-    <div v-if="apodStore.status === 'pending'">Loading...</div>
+    <div v-if="apodMediaStore.status === 'pending'">Loading...</div>
 
-    <div v-if="apodStore.error">
-      <pre>{{ apodStore.error }}</pre>
+    <div v-if="apodMediaStore.error">
+      <pre>{{ apodMediaStore.error }}</pre>
     </div>
 
-    <NuxtLink v-if="apodStore.apod" :to="`/apod/${apodStore.apod.date}`">
+    <NuxtLink
+      v-if="apodMediaStore.media"
+      :to="`/apod/${apodMediaStore.media.date}`"
+    >
       <ApodMediaCard
-        :url="apodStore.apod.url"
-        :media-type="apodStore.apod.media_type"
-        :title="apodStore.apod.title"
-        :date="apodStore.apod.date"
+        :url="apodMediaStore.media.url"
+        :media-type="apodMediaStore.media.media_type"
+        :title="apodMediaStore.media.title"
+        :date="apodMediaStore.media.date"
       />
     </NuxtLink>
   </div>
