@@ -1,26 +1,32 @@
 <script setup lang="ts">
 import { useApodMediaByDateStore } from '~/store/apod-by-date';
-const apodMedia = useApodMediaByDateStore();
+const apodMediaByDate = useApodMediaByDateStore();
 </script>
 
 <template>
-  <Title>{{ apodMedia.pageTitle }}</Title>
+  <Title>{{ apodMediaByDate.pageTitle }}</Title>
 
   <div class="p-4">
-    <div v-if="apodMedia.status === 'pending'">Loading...</div>
-    <div v-if="apodMedia.error">{{ apodMedia.error }}</div>
+    <div v-if="apodMediaByDate.status === 'pending'">Loading...</div>
+    <div v-if="apodMediaByDate.error">{{ apodMediaByDate.error }}</div>
 
     <ApodMediaCard
-      v-if="apodMedia.media"
-      :media-type="apodMedia.media.media_type"
+      v-if="apodMediaByDate.media"
+      :media-type="apodMediaByDate.media.media_type"
       :url="
-        apodMedia.media.media_type === 'image'
-          ? apodMedia.media.hdurl
-          : apodMedia.media.url
+        apodMediaByDate.media.media_type === 'image'
+          ? apodMediaByDate.media.hdurl
+          : apodMediaByDate.media.url
       "
-      :title="apodMedia.media.title"
-      :date="apodMedia.media.date"
-      :description="apodMedia.media.explanation"
-    />
+      :title="apodMediaByDate.media.title"
+      :date="apodMediaByDate.media.date"
+      :description="apodMediaByDate.media.explanation"
+    >
+      <FavToggleButton
+        v-if="apodMediaByDate.media"
+        :item="apodMediaByDate.media"
+        class="inline-flex"
+      />
+    </ApodMediaCard>
   </div>
 </template>

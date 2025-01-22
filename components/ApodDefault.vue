@@ -12,16 +12,19 @@ const apodMediaStore = useApodMediaStore();
       <div v-if="apodMediaStore.error">{{ apodMediaStore.error }}</div>
     </header>
 
-    <NuxtLink
-      v-if="apodMediaStore.media"
-      :to="`/apod/${apodMediaStore.media.date}`"
-    >
-      <ApodMediaCard
-        :url="apodMediaStore.media.url"
-        :media-type="apodMediaStore.media.media_type"
-        :title="apodMediaStore.media.title"
-        :date="apodMediaStore.media.date"
+    <div v-if="apodMediaStore.media" class="flex flex-col relative">
+      <NuxtLink :to="`/apod/${apodMediaStore.media.date}`">
+        <ApodMediaCard
+          :url="apodMediaStore.media.url"
+          :media-type="apodMediaStore.media.media_type"
+          :title="apodMediaStore.media.title"
+          :date="apodMediaStore.media.date"
+        />
+      </NuxtLink>
+      <FavToggleButton
+        :item="apodMediaStore.media"
+        class="absolute -right-5 top-2 inline-flex p-5"
       />
-    </NuxtLink>
+    </div>
   </div>
 </template>
