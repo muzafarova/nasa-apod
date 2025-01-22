@@ -1,5 +1,8 @@
 <script setup lang="ts">
 useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
   titleTemplate: (title) => (title ? '%s • NASA' : 'NASA Images'),
   meta: [
     {
