@@ -8,11 +8,11 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
     },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
   routeRules: {
     '/': { prerender: true },
-    // TODO enable when server-side work done
-    // '/api/*': { cache: { maxAge: 60 * 60 } },
+    '/api/*': { cache: { maxAge: 60 * 60 } },
     '/apod': {
       redirect: { to: '/', statusCode: 302 },
     },
