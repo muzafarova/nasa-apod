@@ -6,6 +6,10 @@ const apodMediaByDate = useApodMediaByDateStore();
 <template>
   <div>
     <Title>{{ apodMediaByDate.pageTitle }}</Title>
+    <Meta
+      name="description"
+      :content="apodMediaByDate.media?.explanation || ''"
+    />
 
     <div class="p-4">
       <div v-if="apodMediaByDate.status === 'pending'">Loading...</div>
