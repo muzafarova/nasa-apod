@@ -11,7 +11,7 @@ defineProps<{
 <template>
   <div class="w-full inline-flex flex-col text-white">
     <div class="py-4">
-      <time class="text-sm text-slate-400">{{ formatDateUI(date) }}</time>
+      <time class="text-sm text-slate-400">{{ formatDate(date) }}</time>
       <h2 class="text-xl flex items-center gap-5">
         {{ title }}
         <slot />

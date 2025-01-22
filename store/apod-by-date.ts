@@ -16,6 +16,7 @@ export const useApodMediaByDateStore = defineStore(
       status,
       execute,
     } = useAsyncData(
+      'apodByDate',
       async () => {
         if (!date.value) {
           return null;
@@ -27,7 +28,7 @@ export const useApodMediaByDateStore = defineStore(
     );
 
     const pageTitle = computed(() =>
-      media.value ? media.value.title : formatDateUI(date.value)
+      media.value ? media.value.title : formatDate(date.value)
     );
 
     watch(

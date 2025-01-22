@@ -40,7 +40,13 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const result = ApodSchema.safeParse(data);
+  // Eliminates inconsistent response format, could be improved further
+  let result;
+  if (search.has('start_date')) {
+    result = z.array(ApodSchema).safeParse(data);
+  } else {
+    result = ApodSchema.safeParse(data);
+  }
 
   if (!result.success) {
     throw createError({

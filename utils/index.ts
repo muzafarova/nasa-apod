@@ -1,22 +1,20 @@
-import { format } from 'date-fns';
+import { format, formatISO } from 'date-fns';
 
-function formatDate(date: string, template: string) {
+export function formatDate(date: string) {
   if (typeof date !== 'string') {
     return date;
   }
 
   try {
-    return format(date, template);
+    return format(date, 'dd/MM/yyyy');
   } catch (err) {
-    console.warn(err);
     return date;
   }
 }
 
-export function formatDateUI(date: string) {
-  return formatDate(date, 'dd/MM/yyyy');
-}
-
-export function formatDateAPI(timestamp: number) {
-  return formatDate(new Date(timestamp).toISOString(), 'yyyy-MM-dd');
+export function formatISODate(date: Date) {
+  if (!(date instanceof Date)) {
+    return date;
+  }
+  return formatISO(new Date(date), { representation: 'date' });
 }

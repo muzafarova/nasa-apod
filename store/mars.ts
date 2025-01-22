@@ -6,8 +6,9 @@ export const useMarsMediaStore = defineStore('marsMediaStore', () => {
     error,
     status,
   } = useAsyncData<MarsMedia>(
+    'marsToday',
     () =>
-      $fetch<MarsMedia>('/api/mars?earth_date=' + formatDateAPI(Date.now())),
+      $fetch<MarsMedia>('/api/mars?earth_date=' + formatISODate(new Date())),
     {
       lazy: true,
     }
