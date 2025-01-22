@@ -25,12 +25,30 @@ export type Apod = z.infer<typeof ApodSchema>;
 export default defineEventHandler(async (event) => {
   const search = new URLSearchParams(getQuery(event));
   search.append('api_key', process.env.API_KEY || '');
+  search.set('thumbs', 'true');
 
-  const res = await $fetch(
+  const res = await fetch(
     'https://api.nasa.gov/planetary/apod?' + search.toString()
   );
-  const result = ApodSchema.safeParse(res);
-  if (!result.success) throw result.error.issues;
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw createError({
+      status: data.code || 500,
+      statusMessage: data.msg || 'Something went wrong',
+    });
+  }
+
+  const result = ApodSchema.safeParse(data);
+
+  if (!result.success) {
+    throw createError({
+      status: 400,
+      statusMessage: 'Validation error',
+      statusText: JSON.stringify(result.error.issues),
+    });
+  }
 
   return result.data;
 });
