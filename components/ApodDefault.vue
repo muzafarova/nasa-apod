@@ -5,7 +5,7 @@ const apodMediaStore = useApodMediaStore();
 </script>
 
 <template>
-  <div>
+  <div class="space-y-4">
     <header>
       <PageHeading tag="h1">Astronomy Picture of the Day</PageHeading>
       <div v-if="apodMediaStore.status === 'pending'">Loading...</div>
@@ -26,7 +26,7 @@ const apodMediaStore = useApodMediaStore();
       </NuxtLink>
       <FavToggleButton
         :item="apodMediaStore.media"
-        class="absolute -right-5 top-2 inline-flex p-5"
+        class="absolute -right-4 top-0 inline-flex p-4"
       />
     </div>
   </div>

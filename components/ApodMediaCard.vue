@@ -10,16 +10,14 @@ defineProps<{
 
 <template>
   <div class="w-full inline-flex flex-col text-white">
-    <div class="py-4">
-      <time class="text-sm text-slate-400">{{ formatDate(date) }}</time>
-      <h2 class="text-xl flex items-center gap-5">
-        {{ title }}
-        <slot />
-      </h2>
-    </div>
+    <time class="text-sm text-slate-400">{{ formatDate(date) }}</time>
+    <h2 class="text-xl flex items-center gap-5 mb-4">
+      {{ title }}
+      <slot />
+    </h2>
 
     <figure class="flex flex-wrap">
-      <figcaption v-if="description" class="xl:w-1/5 bg-slate-700 p-5 shrink-0">
+      <figcaption v-if="description" class="xl:w-1/5 bg-slate-700 p-4 shrink-0">
         <p class="text-base xl:text-sm max-w-prose">
           {{ description }}
         </p>
@@ -28,8 +26,9 @@ defineProps<{
         <img v-if="mediaType === 'image'" :src="url" :alt="title" />
         <iframe
           v-else-if="mediaType === 'video'"
+          tabindex="0"
           :src="url"
-          :title="title"
+          :title="`${title} - YouTube`"
           width="1120"
           height="630"
           class="max-w-full"

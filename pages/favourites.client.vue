@@ -8,16 +8,16 @@ useHead({ title: 'Favourites' });
 
 <template>
   <div class="p-5">
-    <h2 class="text-xl py-4 flex items-center gap-2">Favourites</h2>
+    <PageHeading tag="h2">Favourites</PageHeading>
     <div class="flex flex-wrap gap-5 py-5 justify-start align-start">
       <div
         v-for="item of favouritesStore.favourites"
         :key="item[0]"
-        class="w-96 relative bg-slate-700 p-5"
+        class="w-96 relative bg-slate-700 p-4"
       >
         <FavToggleButton
           :item="item[1]"
-          class="block absolute right-0 top-2 m-5"
+          class="block absolute right-0 top-1 m-4"
         />
         <NuxtLink :to="`/apod/${item[1].date}`" :title="item[1].title">
           <time class="text-sm text-slate-400">{{

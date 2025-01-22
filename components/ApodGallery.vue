@@ -15,7 +15,7 @@ const apodGallery = useApodGalleryStore();
   </header>
   <label
     for="since"
-    class="inline-flex flex-wrap py-1 gap-y-1 gap-x-2 text-sm text-slate-300"
+    class="inline-flex flex-wrap py-2 gap-y-1 gap-x-2 text-sm text-slate-300"
   >
     Since
     <input

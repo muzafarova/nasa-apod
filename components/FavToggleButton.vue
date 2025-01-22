@@ -20,6 +20,9 @@ defineOptions({
       class="inline-flex"
       @click="() => favouritesStore.toggle(item)"
     >
+      <span class="sr-only">{{
+        isActive ? 'Remove from favourites' : 'Add to favourites'
+      }}</span>
       <span class="size-5">
         <!-- // !Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com
       License - https://fontawesome.com/license/free Copyright 2025 Fonticons,
@@ -28,6 +31,7 @@ defineOptions({
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 576 512"
           :class="isActive ? 'fill-yellow-500' : 'fill-slate-400'"
+          :title="isActive ? 'Remove from favourites' : 'Add to favourites'"
         >
           <path
             v-if="isActive"

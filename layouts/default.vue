@@ -20,9 +20,9 @@ useHead({
 
 <template>
   <div class="flex flex-col min-h-full">
-    <nav class="flex items-center">
-      <NuxtLink to="/" class="p-4" title="Home">
-        <span class="inline-flex size-5 fill-white">
+    <nav class="flex items-stretch">
+      <NuxtLink to="/" class="p-5" title="Home">
+        <span class="block size-5 fill-white">
           <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path
@@ -31,8 +31,10 @@ useHead({
           </svg>
         </span>
       </NuxtLink>
-      <FavPageLink class="p-5 flex-1" title="Your Favourites" />
+      <FavPageLink class="p-5 -ml-3" title="Your Favourites" />
     </nav>
-    <NuxtPage />
+    <div class="flex-1">
+      <NuxtPage />
+    </div>
   </div>
 </template>
