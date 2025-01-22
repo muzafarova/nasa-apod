@@ -15,7 +15,6 @@ export const useFavouritesStore = defineStore('favouritesStore', () => {
   });
 
   function toggle(item: ApodMedia) {
-    console.log(item, favourites.value.has(item.date));
     favourites.value.has(item.date)
       ? delete data.value[item.date]
       : (data.value = { ...data.value, [item.date]: item });
