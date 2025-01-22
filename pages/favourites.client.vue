@@ -2,6 +2,8 @@
 import { useFavouritesStore } from '~/store/favourites';
 
 const favouritesStore = useFavouritesStore();
+
+useHead({ title: 'Favourites' });
 </script>
 
 <template>
