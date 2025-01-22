@@ -21,12 +21,8 @@ const apodGallery = useApodGalleryStore();
     <input
       type="date"
       id="since"
-      :max="new Date().toISOString().split('T')[0]"
-      :min="
-        new Date(new Date().setMonth(new Date().getMonth() - 1))
-          .toISOString()
-          .split('T')[0]
-      "
+      :max="formatISODate(new Date())"
+      :min="dateMonthsFromNow(3)"
       :value="apodGallery.startDate"
       @change="e => apodGallery.changeDate((e.target as HTMLInputElement).value)"
       class="bg-slate-400 hover:bg-white text-black px-1 rounded"

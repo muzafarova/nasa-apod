@@ -18,7 +18,14 @@ const ApodSchemaVideo = z.object({
   thumbnail_url: z.string(),
 });
 
-const ApodSchema = z.union([ApodSchemaImage, ApodSchemaVideo]);
+const ApodSchemaOther = z.object({
+  media_type: z.literal('other'),
+  date: z.string().date(),
+  title: z.string(),
+  explanation: z.string(),
+});
+
+const ApodSchema = z.union([ApodSchemaImage, ApodSchemaVideo, ApodSchemaOther]);
 
 export type ApodMedia = z.infer<typeof ApodSchema>;
 
@@ -49,6 +56,7 @@ export default defineEventHandler(async (event) => {
   }
 
   if (!result.success) {
+    console.warn(data, result.error);
     throw createError({
       status: 400,
       statusMessage: 'Validation error',

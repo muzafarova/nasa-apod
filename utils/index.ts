@@ -1,4 +1,4 @@
-import { format, formatISO } from 'date-fns';
+import { format, formatISO, subMonths } from 'date-fns';
 
 export function formatDate(date: string) {
   if (typeof date !== 'string') {
@@ -21,4 +21,8 @@ export function formatISODate(date: Date) {
 
 export function truncate(text: string, size: number) {
   return text.length > size ? text.substring(0, size) + '...' : text;
+}
+
+export function dateMonthsFromNow(months: number) {
+  return formatISODate(subMonths(new Date(), months));
 }

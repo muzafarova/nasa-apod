@@ -20,7 +20,7 @@ defineProps<{
       <NuxtLink :to="`/apod/${item.date}`" :title="item.title">
         <img
           :src="item.media_type === 'image' ? item.url : item.thumbnail_url"
-          :alt="item.title"
+          :alt="`${item.date}: ${item.title}`"
           class="block max-w-full pointer-events-none"
         />
       </NuxtLink>

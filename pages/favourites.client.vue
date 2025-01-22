@@ -27,6 +27,7 @@ useHead({ title: 'Favourites' });
             {{ item[1].title }}
           </h3>
           <img
+            v-if="item[1].media_type !== 'other'"
             :src="
               item[1].media_type === 'image'
                 ? item[1].url

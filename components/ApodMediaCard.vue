@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
-  mediaType: 'image' | 'video';
-  url: string;
+  mediaType: 'image' | 'video' | 'other';
+  url?: string;
   title: string;
   date: string;
   description?: string;
@@ -22,7 +22,7 @@ defineProps<{
           {{ description }}
         </p>
       </figcaption>
-      <div :class="description ? 'xl:w-4/5' : ''">
+      <div v-if="mediaType !== 'other'" :class="description ? 'xl:w-4/5' : ''">
         <img v-if="mediaType === 'image'" :src="url" :alt="title" />
         <iframe
           v-else-if="mediaType === 'video'"

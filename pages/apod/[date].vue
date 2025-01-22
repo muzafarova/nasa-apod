@@ -17,7 +17,9 @@ const apodMediaByDate = useApodMediaByDateStore();
         :url="
           apodMediaByDate.media.media_type === 'image'
             ? apodMediaByDate.media.hdurl
-            : apodMediaByDate.media.url
+            : apodMediaByDate.media.media_type === 'video'
+            ? apodMediaByDate.media.url
+            : ''
         "
         :title="apodMediaByDate.media.title"
         :date="apodMediaByDate.media.date"

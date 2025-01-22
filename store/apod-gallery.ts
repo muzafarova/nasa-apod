@@ -1,21 +1,19 @@
-import { subDays } from 'date-fns';
 import { type ApodMedia } from '~/server/api/apod';
 
-const DAYS_BACK = 15;
+const MONTHS_BACK = 1;
 
 export const useApodGalleryStore = defineStore('apodGallery', () => {
-  const defaultStartDate = formatISODate(subDays(Date.now(), DAYS_BACK));
+  const defaultStartDate = dateMonthsFromNow(MONTHS_BACK);
   const startDate = ref<string>(defaultStartDate);
 
-  const {
-    data: gallery,
-    error,
-    status,
-    execute,
-  } = useAsyncData(
+  const { data, error, status, execute } = useAsyncData(
     'apodGallery',
     () => $fetch<ApodMedia[]>(`/api/apod?start_date=${startDate.value}`),
     { lazy: true }
+  );
+
+  const gallery = computed(() =>
+    data.value?.filter((item) => item.media_type !== 'other')
   );
 
   function changeDate(date: string) {

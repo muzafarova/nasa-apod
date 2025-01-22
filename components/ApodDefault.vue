@@ -15,7 +15,13 @@ const apodMediaStore = useApodMediaStore();
     <div v-if="apodMediaStore.media" class="flex flex-col relative">
       <NuxtLink :to="`/apod/${apodMediaStore.media.date}`">
         <ApodMediaCard
-          :url="apodMediaStore.media.url"
+          :url="
+            apodMediaStore.media.media_type === 'image'
+              ? apodMediaStore.media.hdurl
+              : apodMediaStore.media.media_type === 'video'
+              ? apodMediaStore.media.url
+              : ''
+          "
           :media-type="apodMediaStore.media.media_type"
           :title="apodMediaStore.media.title"
           :date="apodMediaStore.media.date"
