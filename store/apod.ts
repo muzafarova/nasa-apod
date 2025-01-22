@@ -5,7 +5,7 @@ export const useApodStore = defineStore('apodStore', () => {
     data: apod,
     error,
     status,
-  } = useAsyncData<Apod>(() => $fetch<Apod>('/api/apod'));
+  } = useAsyncData<Apod>(() => $fetch<Apod>('/api/apod'), { lazy: true });
 
   return { apod, error, status };
 });
