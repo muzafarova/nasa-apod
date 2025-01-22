@@ -1,6 +1,6 @@
 # Astronomy Picture of the Day
 
-https://nasa-apod-byjg2m4r8-muzafarovas-projects.vercel.app/
+https://nasa-apod-pink.vercel.app/
 
 ## Setup
 
