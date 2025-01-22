@@ -11,7 +11,8 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': { prerender: true },
-    '/api/*': { cache: { maxAge: 60 * 60 } },
+    // TODO enable when server-side work done
+    // '/api/*': { cache: { maxAge: 60 * 60 } },
     '/apod': {
       redirect: { to: '/', statusCode: 302 },
     },
