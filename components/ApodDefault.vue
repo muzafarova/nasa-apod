@@ -20,6 +20,9 @@ const apodMediaStore = useApodMediaStore();
           :title="apodMediaStore.media.title"
           :date="apodMediaStore.media.date"
         />
+        <p class="text-sm mt-3">
+          {{ truncate(apodMediaStore.media.explanation, 400) }}
+        </p>
       </NuxtLink>
       <FavToggleButton
         :item="apodMediaStore.media"

@@ -18,3 +18,7 @@ export function formatISODate(date: Date) {
   }
   return formatISO(new Date(date), { representation: 'date' });
 }
+
+export function truncate(text: string, size: number) {
+  return text.length > size ? text.substring(0, size) + '...' : text;
+}

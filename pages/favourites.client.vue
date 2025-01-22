@@ -36,11 +36,7 @@ useHead({ title: 'Favourites' });
             class="block max-w-full pointer-events-none"
           />
           <p class="text-sm mt-3">
-            {{
-              item[1].explanation.length > 200
-                ? item[1].explanation.substring(0, 200) + '...'
-                : item[1].explanation
-            }}
+            {{ truncate(item[1].explanation, 200) }}
           </p>
         </NuxtLink>
       </div>
