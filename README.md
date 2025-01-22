@@ -1,42 +1,24 @@
-# Nuxt Minimal Starter
+# Astronomy Picture of the Day
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+https://nasa-apod-byjg2m4r8-muzafarovas-projects.vercel.app/
 
 ## Setup
 
-Make sure to install dependencies:
+This project requires secret key that can be obtained here https://api.nasa.gov/, see `.env.example` for a reference.
 
-```bash
+Install dependencies:
+
+````bash
 # npm
 npm install
 
-# pnpm
-pnpm install
+## Development
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Start the development server:
 
 ```bash
 # npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
 
 ## Production
 
@@ -46,30 +28,10 @@ Build the application for production:
 # npm
 npm run build
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
 Locally preview production build:
 
 ```bash
 # npm
 npm run preview
 
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+````
