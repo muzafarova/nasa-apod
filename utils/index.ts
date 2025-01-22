@@ -17,6 +17,6 @@ export function formatDateUI(date: string) {
   return formatDate(date, 'dd/MM/yyyy');
 }
 
-export function formatDateAPI(date: string) {
-  return formatDate(date, 'yyyy-MM-dd');
+export function formatDateAPI(timestamp: number) {
+  return formatDate(new Date(timestamp).toISOString(), 'yyyy-MM-dd');
 }

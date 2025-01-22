@@ -10,11 +10,14 @@ defineProps<{
 
 <template>
   <div class="w-full inline-flex flex-col text-white">
-    <time class="text-sm text-slate-400">{{ formatDateUI(date) }}</time>
-    <h2 class="text-xl py-4 flex items-center gap-5">
-      {{ title }}
-      <slot />
-    </h2>
+    <div class="py-4">
+      <time class="text-sm text-slate-400">{{ formatDateUI(date) }}</time>
+      <h2 class="text-xl flex items-center gap-5">
+        {{ title }}
+        <slot />
+      </h2>
+    </div>
+
     <figure class="flex flex-wrap">
       <figcaption v-if="description" class="xl:w-1/5 bg-slate-700 p-5 shrink-0">
         <p class="text-base xl:text-sm max-w-prose">
