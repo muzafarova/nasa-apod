@@ -23,7 +23,7 @@ useHead({
 
 <template>
   <div class="flex flex-col min-h-full">
-    <nav class="flex items-stretch">
+    <nav class="flex items-stretch gap-4">
       <NuxtLink to="/" class="p-5" title="Home">
         <span class="block size-5 fill-white">
           <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
@@ -34,7 +34,7 @@ useHead({
           </svg>
         </span>
       </NuxtLink>
-      <FavPageLink class="p-5 -ml-3" title="Your Favourites" />
+      <FavPageLink class="-ml-3" title="Your Favourites" />
     </nav>
     <div class="flex-1">
       <NuxtPage />

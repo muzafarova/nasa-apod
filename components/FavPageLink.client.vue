@@ -10,7 +10,7 @@ defineOptions({
 
 <template>
   <ClientOnly>
-    <NuxtLink to="/favourites" v-bind="$attrs"
+    <NuxtLink to="/favourites" v-bind="$attrs" class="inline-flex items-center"
       >Favourites ({{ favouritesStore.count }})
     </NuxtLink>
   </ClientOnly>
