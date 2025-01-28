@@ -17,12 +17,12 @@ export const useApodGalleryStore = defineStore('apodGallery', () => {
       : formatISODate(new Date())
   );
 
+  const url = computed(
+    () => `/api/apod?start_date=${startDate.value}&end_date=${endDate.value}`
+  );
   const { data, error, status, execute } = useAsyncData(
-    'apodGallery',
-    () =>
-      $fetch<ApodMedia[]>(
-        `/api/apod?start_date=${startDate.value}&end_date=${endDate.value}`
-      ),
+    url.value,
+    () => $fetch<ApodMedia[]>(url.value),
     { lazy: true }
   );
 

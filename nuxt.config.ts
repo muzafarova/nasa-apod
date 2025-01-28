@@ -12,11 +12,11 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': {},
-    '/api/**': {},
-    '/favourites': { ssr: false },
     '/apod': {
       redirect: { to: '/', statusCode: 302 },
     },
-    '/apod/**': {},
+    '/apod/**': { isr: 3600 },
+    '/api/**': { cache: { maxAge: 3600 } },
+    '/favourites': { ssr: false },
   },
 });

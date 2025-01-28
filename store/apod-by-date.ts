@@ -10,19 +10,20 @@ export const useApodMediaByDateStore = defineStore(
         : route.params.date;
     });
 
+    const url = computed(() => `/api/apod?date=${date.value}`);
     const {
       data: media,
       error,
       status,
       execute,
     } = useAsyncData(
-      'apodByDate',
+      url.value,
       async () => {
         if (!date.value) {
           return null;
         }
 
-        return await $fetch<ApodMedia>(`/api/apod?date=${date.value}`);
+        return await $fetch<ApodMedia>(url.value);
       },
       { lazy: true }
     );

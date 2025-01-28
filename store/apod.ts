@@ -5,8 +5,9 @@ export const useApodMediaStore = defineStore('apodMediaStore', () => {
     data: media,
     error,
     status,
-  } = useAsyncData('apodDefault', () => $fetch<ApodMedia>('/api/apod'), {
+  } = useFetch<ApodMedia>('/api/apod', {
     lazy: true,
+    cache: 'no-store',
   });
 
   return { media, error, status };
