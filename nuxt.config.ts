@@ -21,7 +21,6 @@ export default defineNuxtConfig({
   },
   image: {
     domains: ['apod.nasa.gov', 'img.youtube.com'],
-    provider: 'vercel',
     screens: {
       thumb: 128,
       thumb2x: 256,
