@@ -12,19 +12,21 @@ defineProps<{
 
 <template>
   <div class="flex flex-wrap gap-5 py-5 justify-start align-start">
-    <div
-      v-for="item of items"
-      :key="item.url"
-      class="w-32 h-16 overflow-hidden"
-    >
+    <div v-for="item of items" :key="item.url">
       <NuxtLink
         :to="`/apod/${item.date}`"
         :title="`${formatDate(item.date)}: ${item.title}`"
+        class="block"
       >
-        <img
+        <NuxtImg
+          preload
+          loading="lazy"
           :src="item.media_type === 'image' ? item.url : item.thumbnail_url"
           :alt="item.title"
-          class="block max-w-full pointer-events-none"
+          width="128"
+          height="128"
+          fit="cover"
+          format="webp"
         />
       </NuxtLink>
     </div>

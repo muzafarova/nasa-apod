@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt', '@nuxtjs/tailwindcss'],
+  modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/tailwindcss'],
   app: {
     head: {
       charset: 'utf-8',
@@ -18,5 +18,8 @@ export default defineNuxtConfig({
     '/apod/**': { isr: 3600 },
     '/api/**': { cache: { maxAge: 3600 } },
     '/favourites': { ssr: false },
+  },
+  image: {
+    domains: ['apod.nasa.gov', 'img.youtube.com'],
   },
 });
