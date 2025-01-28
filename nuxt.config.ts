@@ -11,12 +11,12 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
   },
   routeRules: {
-    '/': { swr: 3600 },
-    '/api/**': { swr: 3600 },
+    '/': {},
+    '/api/**': {},
     '/favourites': { ssr: false },
     '/apod': {
       redirect: { to: '/', statusCode: 302 },
     },
-    '/apod/**': { swr: 3600 },
+    '/apod/**': {},
   },
 });
