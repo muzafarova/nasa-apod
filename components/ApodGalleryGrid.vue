@@ -16,7 +16,7 @@ defineProps<{
       <NuxtLink
         :to="`/apod/${item.date}`"
         :title="`${formatDate(item.date)}: ${item.title}`"
-        class="block"
+        class="block w-32 h-24 overflow-hidden"
       >
         <NuxtImg
           preload
@@ -24,9 +24,7 @@ defineProps<{
           :src="item.media_type === 'image' ? item.url : item.thumbnail_url"
           :alt="item.title"
           width="128"
-          height="128"
-          fit="cover"
-          format="webp"
+          height="96"
         />
       </NuxtLink>
     </div>

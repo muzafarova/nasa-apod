@@ -21,9 +21,5 @@ export default defineNuxtConfig({
   },
   image: {
     domains: ['apod.nasa.gov', 'img.youtube.com'],
-    screens: {
-      thumb: 128,
-      thumb2x: 256,
-    },
   },
 });
