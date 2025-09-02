@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useFavouritesStore } from '~/store/favourites';
-import { type ApodMedia } from '~/server/api/apod.js';
+import { type ApodMedia } from '~/types/apod';
 
 const favouritesStore = useFavouritesStore();
 const props = defineProps<{ item: ApodMedia }>();

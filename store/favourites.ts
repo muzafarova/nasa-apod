@@ -1,4 +1,4 @@
-import { type ApodMedia } from '~/server/api/apod.js';
+import { type ApodMedia } from '~/types/apod';
 import { useStorage } from '@vueuse/core';
 
 export const useFavouritesStore = defineStore('favouritesStore', () => {

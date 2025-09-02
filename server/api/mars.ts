@@ -1,21 +1,4 @@
-import { z } from 'zod';
-
-const MarsRoverSchema = z.object({
-  name: z.string(),
-  status: z.string(),
-});
-
-const MarsPhotoSchema = z.object({
-  img_src: z.string(),
-  rover: MarsRoverSchema,
-  earth_date: z.string().date(),
-});
-
-const MarsPhotosSchema = z.object({
-  photos: z.array(MarsPhotoSchema),
-});
-
-export type MarsMedia = z.infer<typeof MarsPhotosSchema>;
+import { MarsPhotosSchema, type MarsMedia } from '~/types/apod';
 
 export default defineEventHandler(async (event) => {
   const search = new URLSearchParams(getQuery(event));

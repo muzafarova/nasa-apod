@@ -1,6 +1,6 @@
 import { isPast, subMonths, addMonths } from 'date-fns';
 
-import { type ApodMedia } from '~/server/api/apod';
+import { type ApodMedia } from '~/types/apod';
 
 const MONTHS_BACK = 1;
 const MONTHS_BETWEEN = 1;

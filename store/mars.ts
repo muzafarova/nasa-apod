@@ -1,4 +1,4 @@
-import { type MarsMedia } from '~/server/api/mars';
+import { type MarsMedia } from '~/types/apod';
 
 export const useMarsMediaStore = defineStore('marsMediaStore', () => {
   const url = computed(

@@ -1,4 +1,4 @@
-import { type ApodMedia } from '~/server/api/apod';
+import { type ApodMedia } from '~/types/apod';
 
 export const useApodMediaStore = defineStore('apodMediaStore', () => {
   const {
